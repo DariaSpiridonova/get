@@ -28,6 +28,8 @@ while True:
     if GPIO.input(button_up) > 0:
         if num < max_num:
             num += 1
+        else:
+            num = 0
         print(num, dec2bin(num))
         GPIO.output(leds, dec2bin(num))
         time.sleep(sleep_time)
