@@ -29,19 +29,19 @@ while True:
         num = 255
         print(num, dec2bin(num))
         time.sleep(sleep_time)
-        
-    if GPIO.input(button_up) > 0:
+
+    elif GPIO.input(button_up) > 0:
         if num < max_num:
             num += 1
         else:
             num = 0
         print(num, dec2bin(num))
-        GPIO.output(leds, dec2bin(num))
         time.sleep(sleep_time)
 
-    if GPIO.input(button_down) > 0:
+    elif GPIO.input(button_down) > 0:
         if num > 0:
             num -= 1
         print(num, dec2bin(num))
-        GPIO.output(leds, dec2bin(num))
         time.sleep(sleep_time)
+    GPIO.output(leds, dec2bin(num))
+    
