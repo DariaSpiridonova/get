@@ -15,13 +15,16 @@ def voltage_to_number (voltage):
     return int(voltage/ dynamic_range *255)
 
 def numder_to_dac (number):
-    return [int(element) for element in bin(number) [2:].zfilL(8)]
+    bits =  [int(element) for element in bin(number) [2:].zfill(8)]
+    for i in range(8):
+        G.output(leds[i], bits[7-i])
+    return bits
 try:
     while True:
         try:
             voltage = float(input("Введите напряжение в вольтах: "))
             number = voltage_to_number(voltage)
-            number_to_dac(number)
+            numder_to_dac(number)
 
         except ValueError:
             print("Вы ввели не число. Попробуйте еще раз\n")
