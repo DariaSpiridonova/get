@@ -32,7 +32,7 @@ class R2R_DAC:
 
         self.set_number(number)
 
-if name == "__main__":
+if __name__ == "__main__":
     try:
         dac = R2R_DAC([16, 20, 21, 25, 26, 17, 27, 22], 3.183, verbose=True)
 
